@@ -30,5 +30,5 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   document.body.classList.add(savedTheme);
 
-  switchRef.checked = savedTheme === themeColor.dark;
+  switchRef.checked = true;
 }
