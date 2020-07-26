@@ -4,7 +4,6 @@ const themeColor = {
 };
 
 const switchRef = document.querySelector('.js-switch-input');
-console.log(switchRef);
 
 switchRef.addEventListener('change', handleSwitchChange);
 
@@ -14,6 +13,12 @@ function handleSwitchChange(event) {
   } else {
     lightTheme();
   }
+
+  localStorage.setItem(
+    'theme',
+    // JSON.stringify(themeColor),
+    event.target.checked ? themeColor.dark : themeColor.light,
+  );
 }
 
 function darkTheme() {
@@ -24,4 +29,13 @@ function darkTheme() {
 function lightTheme() {
   document.body.classList.add(themeColor.light);
   document.body.classList.remove(themeColor.dark);
+}
+
+const savedTheme = localStorage.getItem('theme');
+
+if (savedTheme) {
+  // const parsedTheme = JSON.parse(savedTheme);
+  document.body.classList.add(savedTheme);
+
+  switchRef.checked = savedTheme;
 }
