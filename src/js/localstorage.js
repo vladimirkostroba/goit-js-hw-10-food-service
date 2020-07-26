@@ -21,8 +21,8 @@ function handleSwitchChange(event) {
 }
 
 function changeTheme(newTheme, oldTheme) {
-  document.body.classList.add(newTheme);
-  document.body.classList.remove(oldTheme);
+  document.body.classList.add(themeColor.dark);
+  document.body.classList.remove(themeColor.light);
 }
 
 const savedTheme = localStorage.getItem('theme');
@@ -30,5 +30,5 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
   document.body.classList.add(savedTheme);
 
-  switchRef.checked = true;
+  switchRef.checked = savedTheme === themeColor.dark;
 }
