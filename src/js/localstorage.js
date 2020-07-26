@@ -21,8 +21,8 @@ function handleSwitchChange(event) {
 }
 
 function changeTheme(newTheme, oldTheme) {
-  document.body.classList.add(themeColor.dark);
-  document.body.classList.remove(themeColor.light);
+  document.body.classList.add(newTheme);
+  document.body.classList.remove(oldTheme);
 }
 
 const savedTheme = localStorage.getItem('theme');
